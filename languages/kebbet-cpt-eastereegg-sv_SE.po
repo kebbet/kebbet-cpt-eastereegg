@@ -1,0 +1,293 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Kebbet plugins - Custom Post Type: Easter egg\n"
+"POT-Creation-Date: 2022-03-27 10:03+0200\n"
+"PO-Revision-Date: 2022-03-27 10:09+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: sv_SE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: kebbet-cpt-easteregg.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: inc/admin-columns.php:41 kebbet-cpt-easteregg.php:89
+msgid "Egg image"
+msgstr "Äggbild"
+
+#: inc/admin-columns.php:66
+msgid "No image is set."
+msgstr "Ingen bild har angetts."
+
+#. translators: %s: counter of how many posts.
+#: inc/at-a-glance.php:34
+#, php-format
+msgid "%s egg post"
+msgid_plural "%s egg posts"
+msgstr[0] "%s ägginlägg"
+msgstr[1] "%s ägginlägg"
+
+#: kebbet-cpt-easteregg.php:74
+msgctxt "Post Type General Name"
+msgid "Easter eggs"
+msgstr "Påskägg"
+
+#: kebbet-cpt-easteregg.php:75
+msgctxt "Post Type Singular Name"
+msgid "Egg"
+msgstr "Ägg"
+
+#: kebbet-cpt-easteregg.php:76
+msgid "Eggs"
+msgstr "Ägg"
+
+#: kebbet-cpt-easteregg.php:77
+msgid "Egg"
+msgstr "Ägg"
+
+#: kebbet-cpt-easteregg.php:78
+msgid "All eggs"
+msgstr "Alla ägg"
+
+#: kebbet-cpt-easteregg.php:79 kebbet-cpt-easteregg.php:81
+msgid "New egg"
+msgstr "Nytt ägg"
+
+#: kebbet-cpt-easteregg.php:80
+msgid "Add new egg"
+msgstr "Lägg till nytt ägg"
+
+#: kebbet-cpt-easteregg.php:82
+msgid "Edit egg"
+msgstr "Redigera ägg"
+
+#: kebbet-cpt-easteregg.php:83
+msgid "Update egg"
+msgstr "Uppdatera ägg"
+
+#: kebbet-cpt-easteregg.php:84
+msgid "View egg"
+msgstr "Visa ägg"
+
+#: kebbet-cpt-easteregg.php:85
+msgid "View eggs"
+msgstr "Visa ägg"
+
+#: kebbet-cpt-easteregg.php:86
+msgid "Search eggs"
+msgstr "Sök ägg"
+
+#: kebbet-cpt-easteregg.php:87
+msgid "Not found"
+msgstr "Inget hittades"
+
+#: kebbet-cpt-easteregg.php:88
+msgid "No eggs found in Trash"
+msgstr "Inga ägg hittades i papperskorgen"
+
+#: kebbet-cpt-easteregg.php:90
+msgid "Set egg image"
+msgstr "Ange äggbild"
+
+#: kebbet-cpt-easteregg.php:91
+msgid "Remove egg image"
+msgstr "Ta bort äggbild"
+
+#: kebbet-cpt-easteregg.php:92
+msgid "Use as egg image"
+msgstr "Använd som äggbild"
+
+#: kebbet-cpt-easteregg.php:93
+msgid "Insert into item"
+msgstr "Infoga till objekt"
+
+#: kebbet-cpt-easteregg.php:94
+msgid "Uploaded to this egg"
+msgstr "Uppladdat till detta ägg"
+
+#: kebbet-cpt-easteregg.php:95
+msgid "Items list"
+msgstr "Objektslista"
+
+#: kebbet-cpt-easteregg.php:96
+msgid "Items list navigation"
+msgstr "Navigering för objektlista"
+
+#: kebbet-cpt-easteregg.php:97
+msgid "Filter items list"
+msgstr "Filtrera objektlista"
+
+#: kebbet-cpt-easteregg.php:98
+msgid "Egg published"
+msgstr "Ägg publicerat"
+
+#: kebbet-cpt-easteregg.php:99
+msgid "Egg published privately"
+msgstr "Ägg publicerat privat"
+
+#: kebbet-cpt-easteregg.php:100
+msgid "Egg reverted to Draft"
+msgstr "Ägg återställt till utkast"
+
+#: kebbet-cpt-easteregg.php:101
+msgid "Egg scheduled"
+msgstr "Ägg schemalagt"
+
+#: kebbet-cpt-easteregg.php:102
+msgid "Egg updated"
+msgstr "Ägg uppdaterat"
+
+#: kebbet-cpt-easteregg.php:104
+msgid "Filter eggs by date"
+msgstr "Filtrera ägg efter datum"
+
+#: kebbet-cpt-easteregg.php:105
+msgid "Eggs post link"
+msgstr "Länk till ägginlägg"
+
+#: kebbet-cpt-easteregg.php:106
+msgid "A link to a egg post"
+msgstr "En länk till ett ägginlägg"
+
+#: kebbet-cpt-easteregg.php:129
+msgid "Egg post type"
+msgstr "Inläggstypen ägg"
+
+#: kebbet-cpt-easteregg.php:130
+msgid "Custom post type for easter eggs"
+msgstr "Anpassad inläggstyp för påskägg"
+
+#: kebbet-cpt-easteregg.php:202 kebbet-cpt-easteregg.php:205
+msgid "Egg updated."
+msgstr "Ägget uppdaterat."
+
+#: kebbet-cpt-easteregg.php:203
+msgid "Custom field updated."
+msgstr "Anpassat fält uppdaterat."
+
+#: kebbet-cpt-easteregg.php:204
+msgid "Custom field deleted."
+msgstr "Eget fält borttaget."
+
+#. translators: %s: date and time of the revision
+#: kebbet-cpt-easteregg.php:207
+#, php-format
+msgid "Egg restored to revision from %s"
+msgstr "Ägg återställt till revision från %s"
+
+#: kebbet-cpt-easteregg.php:208
+msgid "Egg published."
+msgstr "Ägg publicerat."
+
+#: kebbet-cpt-easteregg.php:209
+msgid "Egg saved."
+msgstr "Ägg sparat."
+
+#: kebbet-cpt-easteregg.php:210
+msgid "Egg submitted."
+msgstr "Ägg inlämnat."
+
+#. translators: %1$s: date and time of the scheduled post
+#: kebbet-cpt-easteregg.php:213
+#, php-format
+msgid "Egg scheduled for: <strong>%1$s</strong>."
+msgstr "Ägg schemalagt till: <strong>%1$s</strong>."
+
+#: kebbet-cpt-easteregg.php:214
+msgid "M j, Y @ G:i"
+msgstr "Y-m-d, H:i"
+
+#: kebbet-cpt-easteregg.php:216
+msgid "Egg draft updated."
+msgstr "Äggutkastet uppdaterat."
+
+#: kebbet-cpt-easteregg.php:224
+msgid "View Egg"
+msgstr "Visa ägg"
+
+#: kebbet-cpt-easteregg.php:230
+msgid "Preview Egg"
+msgstr "Förhandsgranska ägg"
+
+#. translators: %s: singular of posts, %$s: plural of posts.
+#: kebbet-cpt-easteregg.php:256
+#, php-format
+msgid "%s post updated."
+msgid_plural "%s posts updated."
+msgstr[0] "%s inlägg uppdaterat."
+msgstr[1] "%s inlägg uppdaterade."
+
+#. translators: %s: singular of posts, %$s: plural of posts.
+#: kebbet-cpt-easteregg.php:258
+#, php-format
+msgid "%s post not updated, somebody is editing it."
+msgid_plural "%s posts not updated, somebody is editing them."
+msgstr[0] "%s inlägg inte uppdaterat, någon redigerar det."
+msgstr[1] "%s inlägg inte uppdaterade, någon redigerar dem."
+
+#. translators: %s: singular of posts, %$s: plural of posts.
+#: kebbet-cpt-easteregg.php:260
+#, php-format
+msgid "%s post permanently deleted."
+msgid_plural "%s posts permanently deleted."
+msgstr[0] "%s inlägg togs bort permanent."
+msgstr[1] "%s inlägg togs bort permanent."
+
+#. translators: %s: singular of posts, %$s: plural of posts.
+#: kebbet-cpt-easteregg.php:262
+#, php-format
+msgid "%s post moved to the Trash."
+msgid_plural "%s posts moved to the Trash."
+msgstr[0] "%s inlägg flyttat till papperskorgen."
+msgstr[1] "%s inlägg flyttade till papperskorgen."
+
+#. translators: %s: singular of posts, %$s: plural of posts.
+#: kebbet-cpt-easteregg.php:264
+#, php-format
+msgid "%s post restored from the Trash."
+msgid_plural "%s posts restored from the Trash."
+msgstr[0] "%s inlägg återställt från papperskorgen."
+msgstr[1] "%s inlägg återställda från papperskorgen."
+
+#: kebbet-cpt-easteregg.php:288
+msgid "Egg archive settings"
+msgstr "Inställningar för äggarkiv"
+
+#: kebbet-cpt-easteregg.php:289
+msgid "Archive settings for eggs"
+msgstr "Arkivinställningar för ägg"
+
+#: kebbet-cpt-easteregg.php:315
+#, php-format
+msgid "Easter egg #%s"
+msgstr "Påskägg #%s"
+
+#. Plugin Name of the plugin/theme
+msgid "Kebbet plugins - Custom Post Type: Easter egg"
+msgstr "Kebbet plugins - Anpassad inläggstyp: Påskägg"
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/kebbet/kebbet-cpt-eastereegg"
+msgstr "https://github.com/kebbet/kebbet-cpt-eastereegg"
+
+#. Description of the plugin/theme
+msgid "Registers a Custom Post Type."
+msgstr "Registrerar en anpassad posttyp."
+
+#. Author of the plugin/theme
+msgid "Erik Betshammar"
+msgstr "Erik Betshammar"
+
+#. Author URI of the plugin/theme
+msgid "https://verkan.se"
+msgstr "https://verkan.se"
