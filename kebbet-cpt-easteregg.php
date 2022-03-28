@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Kebbet plugins - Custom Post Type: Easter egg
- * Plugin URI:  https://github.com/kebbet/kebbet-cpt-eastereegg
+ * Plugin URI:  https://github.com/kebbet/kebbet-cpt-easteregg
  * Description: Registers a Custom Post Type.
  * Version:     1.1.0
  * Author:      Erik Betshammar
@@ -62,7 +62,7 @@ register_activation_hook( __FILE__, __NAMESPACE__ . '\rewrite_flush' );
  * Load plugin textdomain.
  */
 function load_textdomain() {
-	load_plugin_textdomain( 'kebbet-cpt-eastereegg', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+	load_plugin_textdomain( 'kebbet-cpt-easteregg', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 }
 
 /**
@@ -70,39 +70,39 @@ function load_textdomain() {
  */
 function register() {
 	$labels_args       = array(
-		'name'                     => _x( 'Easter eggs', 'Post Type General Name', 'kebbet-cpt-eastereegg' ),
-		'singular_name'            => _x( 'Egg', 'Post Type Singular Name', 'kebbet-cpt-eastereegg' ),
-		'menu_name'                => __( 'Eggs', 'kebbet-cpt-eastereegg' ),
-		'name_admin_bar'           => __( 'Egg', 'kebbet-cpt-eastereegg' ),
-		'all_items'                => __( 'All eggs', 'kebbet-cpt-eastereegg' ),
-		'add_new_item'             => __( 'New egg', 'kebbet-cpt-eastereegg' ),
-		'add_new'                  => __( 'Add new egg', 'kebbet-cpt-eastereegg' ),
-		'new_item'                 => __( 'New egg', 'kebbet-cpt-eastereegg' ),
-		'edit_item'                => __( 'Edit egg', 'kebbet-cpt-eastereegg' ),
-		'update_item'              => __( 'Update egg', 'kebbet-cpt-eastereegg' ),
-		'view_item'                => __( 'View egg', 'kebbet-cpt-eastereegg' ),
-		'view_items'               => __( 'View eggs', 'kebbet-cpt-eastereegg' ),
-		'search_items'             => __( 'Search eggs', 'kebbet-cpt-eastereegg' ),
-		'not_found'                => __( 'Not found', 'kebbet-cpt-eastereegg' ),
-		'not_found_in_trash'       => __( 'No eggs found in Trash', 'kebbet-cpt-eastereegg' ),
-		'featured_image'           => __( 'Egg image', 'kebbet-cpt-eastereegg' ),
-		'set_featured_image'       => __( 'Set egg image', 'kebbet-cpt-eastereegg' ),
-		'remove_featured_image'    => __( 'Remove egg image', 'kebbet-cpt-eastereegg' ),
-		'use_featured_image'       => __( 'Use as egg image', 'kebbet-cpt-eastereegg' ),
-		'insert_into_item'         => __( 'Insert into item', 'kebbet-cpt-eastereegg' ),
-		'uploaded_to_this_item'    => __( 'Uploaded to this egg', 'kebbet-cpt-eastereegg' ),
-		'items_list'               => __( 'Items list', 'kebbet-cpt-eastereegg' ),
-		'items_list_navigation'    => __( 'Items list navigation', 'kebbet-cpt-eastereegg' ),
-		'filter_items_list'        => __( 'Filter items list', 'kebbet-cpt-eastereegg' ),
-		'item_published'           => __( 'Egg published', 'kebbet-cpt-eastereegg' ),
-		'item_published_privately' => __( 'Egg published privately', 'kebbet-cpt-eastereegg' ),
-		'item_reverted_to_draft'   => __( 'Egg reverted to Draft', 'kebbet-cpt-eastereegg' ),
-		'item_scheduled'           => __( 'Egg scheduled', 'kebbet-cpt-eastereegg' ),
-		'item_updated'             => __( 'Egg updated', 'kebbet-cpt-eastereegg' ),
+		'name'                     => _x( 'Easter eggs', 'Post Type General Name', 'kebbet-cpt-easteregg' ),
+		'singular_name'            => _x( 'Egg', 'Post Type Singular Name', 'kebbet-cpt-easteregg' ),
+		'menu_name'                => __( 'Eggs', 'kebbet-cpt-easteregg' ),
+		'name_admin_bar'           => __( 'Egg', 'kebbet-cpt-easteregg' ),
+		'all_items'                => __( 'All eggs', 'kebbet-cpt-easteregg' ),
+		'add_new_item'             => __( 'New egg', 'kebbet-cpt-easteregg' ),
+		'add_new'                  => __( 'Add new egg', 'kebbet-cpt-easteregg' ),
+		'new_item'                 => __( 'New egg', 'kebbet-cpt-easteregg' ),
+		'edit_item'                => __( 'Edit egg', 'kebbet-cpt-easteregg' ),
+		'update_item'              => __( 'Update egg', 'kebbet-cpt-easteregg' ),
+		'view_item'                => __( 'View egg', 'kebbet-cpt-easteregg' ),
+		'view_items'               => __( 'View eggs', 'kebbet-cpt-easteregg' ),
+		'search_items'             => __( 'Search eggs', 'kebbet-cpt-easteregg' ),
+		'not_found'                => __( 'Not found', 'kebbet-cpt-easteregg' ),
+		'not_found_in_trash'       => __( 'No eggs found in Trash', 'kebbet-cpt-easteregg' ),
+		'featured_image'           => __( 'Egg image', 'kebbet-cpt-easteregg' ),
+		'set_featured_image'       => __( 'Set egg image', 'kebbet-cpt-easteregg' ),
+		'remove_featured_image'    => __( 'Remove egg image', 'kebbet-cpt-easteregg' ),
+		'use_featured_image'       => __( 'Use as egg image', 'kebbet-cpt-easteregg' ),
+		'insert_into_item'         => __( 'Insert into item', 'kebbet-cpt-easteregg' ),
+		'uploaded_to_this_item'    => __( 'Uploaded to this egg', 'kebbet-cpt-easteregg' ),
+		'items_list'               => __( 'Items list', 'kebbet-cpt-easteregg' ),
+		'items_list_navigation'    => __( 'Items list navigation', 'kebbet-cpt-easteregg' ),
+		'filter_items_list'        => __( 'Filter items list', 'kebbet-cpt-easteregg' ),
+		'item_published'           => __( 'Egg published', 'kebbet-cpt-easteregg' ),
+		'item_published_privately' => __( 'Egg published privately', 'kebbet-cpt-easteregg' ),
+		'item_reverted_to_draft'   => __( 'Egg reverted to Draft', 'kebbet-cpt-easteregg' ),
+		'item_scheduled'           => __( 'Egg scheduled', 'kebbet-cpt-easteregg' ),
+		'item_updated'             => __( 'Egg updated', 'kebbet-cpt-easteregg' ),
 		// 5.7 + 5.8
-		'filter_by_date'           => __( 'Filter eggs by date', 'kebbet-cpt-eastereegg' ),
-		'item_link'                => __( 'Eggs post link', 'kebbet-cpt-eastereegg' ),
-		'item_link_description'    => __( 'A link to a egg post', 'kebbet-cpt-eastereegg' ),
+		'filter_by_date'           => __( 'Filter eggs by date', 'kebbet-cpt-easteregg' ),
+		'item_link'                => __( 'Eggs post link', 'kebbet-cpt-easteregg' ),
+		'item_link_description'    => __( 'A link to a egg post', 'kebbet-cpt-easteregg' ),
 	);
 
 	$supports_args = array(
@@ -124,8 +124,8 @@ function register() {
 		'delete_post'        => 'delete_' . POSTTYPE,
 	);
 	$post_type_args    = array(
-		'label'               => __( 'Egg post type', 'kebbet-cpt-eastereegg' ),
-		'description'         => __( 'Custom post type for easter eggs', 'kebbet-cpt-eastereegg' ),
+		'label'               => __( 'Egg post type', 'kebbet-cpt-easteregg' ),
+		'description'         => __( 'Custom post type for easter eggs', 'kebbet-cpt-easteregg' ),
 		'labels'              => $labels_args,
 		'supports'            => $supports_args,
 		'taxonomies'          => array(),

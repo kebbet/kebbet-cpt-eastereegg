@@ -4,7 +4,7 @@
  *
  * @since 1.1.0
  *
- * @package kebbet-cpt-eastereegg
+ * @package kebbet-cpt-easteregg
  */
 
 namespace cpt\kebbet\easteregg\optionspage;
@@ -17,8 +17,8 @@ use const cpt\kebbet\easteregg\POSTTYPE;
 function add_options_page() {
 	if ( function_exists( 'acf_add_options_page' ) ) {
 		acf_add_options_sub_page( array(
-			'page_title' => __( 'Egg archive settings', 'kebbet-cpt-eastereegg' ),
-			'menu_title' => __( 'Archive settings for eggs', 'kebbet-cpt-eastereegg' ),
+			'page_title' => __( 'Egg archive settings', 'kebbet-cpt-easteregg' ),
+			'menu_title' => __( 'Archive settings for eggs', 'kebbet-cpt-easteregg' ),
 			'parent'     => 'edit.php?post_type=' . POSTTYPE,
 			'post_id'    => POSTTYPE,
 		) );

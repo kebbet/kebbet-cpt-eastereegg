@@ -4,7 +4,7 @@
  *
  * @since 1.1.0
  *
- * @package kebbet-cpt-eastereegg
+ * @package kebbet-cpt-easteregg
  */
 
 namespace cpt\kebbet\easteregg\adminmessages;
@@ -27,34 +27,34 @@ function post_updated_messages( $messages ) {
 
 	$messages[ POSTTYPE ] = array(
 		0  => '',
-		1  => __( 'Egg updated.', 'kebbet-cpt-eastereegg' ),
-		2  => __( 'Custom field updated.', 'kebbet-cpt-eastereegg' ),
-		3  => __( 'Custom field deleted.', 'kebbet-cpt-eastereegg' ),
-		4  => __( 'Egg updated.', 'kebbet-cpt-eastereegg' ),
+		1  => __( 'Egg updated.', 'kebbet-cpt-easteregg' ),
+		2  => __( 'Custom field updated.', 'kebbet-cpt-easteregg' ),
+		3  => __( 'Custom field deleted.', 'kebbet-cpt-easteregg' ),
+		4  => __( 'Egg updated.', 'kebbet-cpt-easteregg' ),
 		/* translators: %s: date and time of the revision */
-		5  => isset( $_GET['revision'] ) ? sprintf( __( 'Egg restored to revision from %s', 'kebbet-cpt-eastereegg' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
-		6  => __( 'Egg published.', 'kebbet-cpt-eastereegg' ),
-		7  => __( 'Egg saved.', 'kebbet-cpt-eastereegg' ),
-		8  => __( 'Egg submitted.', 'kebbet-cpt-eastereegg' ),
+		5  => isset( $_GET['revision'] ) ? sprintf( __( 'Egg restored to revision from %s', 'kebbet-cpt-easteregg' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+		6  => __( 'Egg published.', 'kebbet-cpt-easteregg' ),
+		7  => __( 'Egg saved.', 'kebbet-cpt-easteregg' ),
+		8  => __( 'Egg submitted.', 'kebbet-cpt-easteregg' ),
 		9  => sprintf(
 			/* translators: %1$s: date and time of the scheduled post */
-			__( 'Egg scheduled for: <strong>%1$s</strong>.', 'kebbet-cpt-eastereegg' ),
-			date_i18n( __( 'M j, Y @ G:i', 'kebbet-cpt-eastereegg' ), strtotime( $post->post_date ) )
+			__( 'Egg scheduled for: <strong>%1$s</strong>.', 'kebbet-cpt-easteregg' ),
+			date_i18n( __( 'M j, Y @ G:i', 'kebbet-cpt-easteregg' ), strtotime( $post->post_date ) )
 		),
-		10 => __( 'Egg draft updated.', 'kebbet-cpt-eastereegg' ),
+		10 => __( 'Egg draft updated.', 'kebbet-cpt-easteregg' ),
 	);
 	if ( $post_type_object->publicly_queryable && POSTTYPE === $post_type ) {
 		$permalink         = get_permalink( $post->ID );
 		$view_link         = sprintf(
 			' <a href="%s">%s</a>',
 			esc_url( $permalink ),
-			__( 'View Egg', 'kebbet-cpt-eastereegg' )
+			__( 'View Egg', 'kebbet-cpt-easteregg' )
 		);
 		$preview_permalink = add_query_arg( 'preview', 'true', $permalink );
 		$preview_link      = sprintf(
 			' <a target="_blank" href="%s">%s</a>',
 			esc_url( $preview_permalink ),
-			__( 'Preview Egg', 'kebbet-cpt-eastereegg' )
+			__( 'Preview Egg', 'kebbet-cpt-easteregg' )
 		);
 
 		$messages[ $post_type ][1]  .= $view_link;
@@ -77,15 +77,15 @@ add_filter( 'post_updated_messages', __NAMESPACE__ . '\post_updated_messages' );
 function bulk_post_updated_messages( $bulk_messages, $bulk_counts ) {
 	$bulk_messages[ POSTTYPE ] = array(
 		/* translators: %s: singular of posts, %$s: plural of posts.  */
-		'updated'   => _n( '%s post updated.', '%s posts updated.', number_format_i18n( $bulk_counts['updated'] ), 'kebbet-cpt-eastereegg' ),
+		'updated'   => _n( '%s post updated.', '%s posts updated.', number_format_i18n( $bulk_counts['updated'] ), 'kebbet-cpt-easteregg' ),
 		/* translators: %s: singular of posts, %$s: plural of posts.  */
-		'locked'    => _n( '%s post not updated, somebody is editing it.', '%s posts not updated, somebody is editing them.', number_format_i18n( $bulk_counts['locked'] ), 'kebbet-cpt-eastereegg' ),
+		'locked'    => _n( '%s post not updated, somebody is editing it.', '%s posts not updated, somebody is editing them.', number_format_i18n( $bulk_counts['locked'] ), 'kebbet-cpt-easteregg' ),
 		/* translators: %s: singular of posts, %$s: plural of posts.  */
-		'deleted'   => _n( '%s post permanently deleted.', '%s posts permanently deleted.', number_format_i18n( $bulk_counts['deleted'] ), 'kebbet-cpt-eastereegg' ),
+		'deleted'   => _n( '%s post permanently deleted.', '%s posts permanently deleted.', number_format_i18n( $bulk_counts['deleted'] ), 'kebbet-cpt-easteregg' ),
 		/* translators: %s: singular of posts, %$s: plural of posts.  */
-		'trashed'   => _n( '%s post moved to the Trash.', '%s posts moved to the Trash.', number_format_i18n( $bulk_counts['trashed'] ), 'kebbet-cpt-eastereegg' ),
+		'trashed'   => _n( '%s post moved to the Trash.', '%s posts moved to the Trash.', number_format_i18n( $bulk_counts['trashed'] ), 'kebbet-cpt-easteregg' ),
 		/* translators: %s: singular of posts, %$s: plural of posts.  */
-		'untrashed' => _n( '%s post restored from the Trash.', '%s posts restored from the Trash.', number_format_i18n( $bulk_counts['untrashed'] ), 'kebbet-cpt-eastereegg' ),
+		'untrashed' => _n( '%s post restored from the Trash.', '%s posts restored from the Trash.', number_format_i18n( $bulk_counts['untrashed'] ), 'kebbet-cpt-easteregg' ),
 	);
 
 	return $bulk_messages;

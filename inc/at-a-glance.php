@@ -2,7 +2,7 @@
 /**
  * Adds post-type info to 'At a Glance'-dashboard widget.
  *
- * @package kebbet-cpt-eastereegg
+ * @package kebbet-cpt-easteregg
  */
 
 namespace cpt\kebbet\easteregg\at_a_glance;
@@ -31,7 +31,7 @@ function at_a_glance_items( $items = array() ) {
 			$published = intval( $num_posts->publish );
 			$post_type = get_post_type_object( $type );
 			/* translators: %s: counter of how many posts. */
-			$text     = _n( '%s egg post', '%s egg posts', $published, 'kebbet-cpt-eastereegg' );
+			$text     = _n( '%s egg post', '%s egg posts', $published, 'kebbet-cpt-easteregg' );
 			$text     = sprintf( $text, number_format_i18n( $published ) );
 			$editlink = 'edit.php?post_type=' . $type;
 

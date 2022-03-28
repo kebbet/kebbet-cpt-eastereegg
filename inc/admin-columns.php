@@ -2,7 +2,7 @@
 /**
  * Adds and modifies the admin columns for the post type.
  *
- * @package kebbet-cpt-eastereegg
+ * @package kebbet-cpt-easteregg
  */
 
 namespace cpt\kebbet\easteregg\admincolumns;
@@ -38,7 +38,7 @@ add_filter( 'manage_' . POSTTYPE . '_posts_columns', __NAMESPACE__ . '\column_or
  */
 function set_admin_column_list( $columns ) {
 	if ( true === THUMBNAIL ) {
-		$columns['thumbnail'] = __( 'Egg image', 'kebbet-cpt-eastereegg' );
+		$columns['thumbnail'] = __( 'Egg image', 'kebbet-cpt-easteregg' );
 	}
 	return $columns;
 }
@@ -63,7 +63,7 @@ function populate_custom_columns( $column, $post_id ) {
 		if ( $thumbnail ) {
 			echo $thumbnail;
 		} else {
-			echo __( 'No image is set.', 'kebbet-cpt-eastereegg' );
+			echo __( 'No image is set.', 'kebbet-cpt-easteregg' );
 		}
 	}
 }

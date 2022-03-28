@@ -4,7 +4,7 @@
  *
  * @since 1.1.0
  *
- * @package kebbet-cpt-eastereegg
+ * @package kebbet-cpt-easteregg
  */
 
 namespace cpt\kebbet\easteregg\customization;
