@@ -3,7 +3,7 @@
  * Plugin Name: Kebbet plugins - Custom Post Type: Easter egg
  * Plugin URI:  https://github.com/kebbet/kebbet-cpt-eastereegg
  * Description: Registers a Custom Post Type.
- * Version:     1.0.0
+ * Version:     1.1.0
  * Author:      Erik Betshammar
  * Author URI:  https://verkan.se
  * Update URI:  false
@@ -36,7 +36,7 @@ function init() {
 	if ( true === THUMBNAIL ) {
 		add_theme_support( 'post-thumbnails' );
 	}
-	add_filter( 'wp_insert_post_data', __NAMESPACE__ .'\set_post_title', 99, 2 );
+	add_filter( 'wp_insert_post_data', __NAMESPACE__ .'\customization\set_post_title', 99, 2 );
 }
 add_action( 'init', __NAMESPACE__ . '\init', 0 );
 
@@ -69,7 +69,6 @@ function load_textdomain() {
  * Register Custom Post Type
  */
 function register() {
-
 	$labels_args       = array(
 		'name'                     => _x( 'Easter eggs', 'Post Type General Name', 'kebbet-cpt-eastereegg' ),
 		'singular_name'            => _x( 'Egg', 'Post Type Singular Name', 'kebbet-cpt-eastereegg' ),
@@ -114,7 +113,6 @@ function register() {
 	if ( true === THUMBNAIL ) {
 		$supports_args = array_merge( $supports_args, array( 'thumbnail' ) );
 	}
-	$icon = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI2LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9ImVnZ19sYXllciIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiCgkgdmlld0JveD0iMCAwIDIwIDIwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyMCAyMDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiNGRkZGRkY7fQo8L3N0eWxlPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNOSw1LjFjMS4yLTAuNywyLjUtMS40LDMuOC0xLjhjMS41LTAuMywyLjgtMC4yLDQuMSwwLjNjMi4zLDAuOSwyLjYsNC4xLDIuNSw2LjJjLTAuMSwyLjMsMS40LDMuMy0wLjEsNS41CgljLTEuNCwyLjEtNC42LDEuOS02LjgsMC43Yy0xLjMtMC43LTIuNSwwLjktMy45LDAuNWMtMC45LTAuMS0yLjUtMS4zLTIuOS0xLjVjLTEuMS0wLjUtMy4xLTAuMy00LjEtMS4yYy0wLjctMC43LTEuMS0xLjYtMS4zLTIuNQoJYy0wLjUtMS44LTAuNS0zLjgsMS01LjFjMC42LTAuNSwxLjMtMC44LDIuMS0xQzUuMSw0LjksNyw2LjIsOSw1LjFMOSw1LjF6IE0zLjUsNi43YzAuNC0wLjEsMC43LDAuNSwwLjMsMC43CgljLTEuNSwwLjUtMS43LDEuNy0xLjksM0MxLjQsOC44LDEuNyw3LjQsMy41LDYuN0wzLjUsNi43eiBNMTIuNyw2LjdjMS45LDAsMy41LDEuMywzLjUsM3MtMS42LDMuMS0zLjUsMy4xcy0zLjUtMS40LTMuNS0zLjEKCUM5LjIsOC4xLDEwLjgsNi43LDEyLjcsNi43eiBNMTAuOCw4LjJjMC40LTAuMywwLjksMC4yLDAuNywwLjVjLTAuNywwLjctMC45LDEuNS0wLjUsMi43QzExLjIsMTEuOCw5LDEwLjEsMTAuOCw4LjJMMTAuOCw4LjJ6CgkgTTkuMiw1LjZjMi40LTEuNCw0LjUtMi42LDcuNS0xLjVDMTguOCw0LjksMTksOCwxOC44LDkuOWMtMC4xLDIsMS4yLDIuOCwwLjIsNC44Yy0wLjksMS44LTMuOSwyLjMtNi41LDAuN2MtMS0wLjYtMi41LDAuOS0zLjksMC41CgljLTEuNC0wLjQtMi4xLTEuMy0yLjctMS41Yy0yLjUtMC45LTQsMC4zLTQuOS0zLjJDMCw4LDEuNCw2LjMsMy41LDUuOUM1LjEsNS41LDcsNi45LDkuMiw1LjZMOS4yLDUuNnoiLz4KPC9zdmc+Cg==';
 
 	$capabilities_args = array(
 		'edit_post'          => 'edit_' . POSTTYPE,
@@ -136,7 +134,7 @@ function register() {
 		'show_ui'             => true,
 		'show_in_menu'        => true,
 		'menu_position'       => MENUPOS,
-		'menu_icon'           => $icon,
+		'menu_icon'           => menu_icon(),
 		'show_in_admin_bar'   => true,
 		'show_in_nav_menus'   => false,
 		'can_export'          => true,
@@ -145,7 +143,7 @@ function register() {
 		'publicly_queryable'  => false,
 		'rewrite'             => false,
 		'capabilities'        => $capabilities_args,
-		'template'            => array( array( 'core/quote' ) ),
+		'template'            => array( array( 'core/quote', array( 'className' => 'is-egg' ) ) ),
 		'template_lock'       => 'all',
 		// Adding map_meta_cap will map the meta correctly.
 		'show_in_rest'        => true,
@@ -158,116 +156,22 @@ function register() {
  * Adds custom capabilities to CPT. Adjust it with plugin URE later with its UI.
  */
 function add_custom_capabilities() {
+	$roles = array(
+		'admin'  => get_role( 'administrator' ),
+		'editor' => get_role( 'editor' ),
+	);
 
-	// Gets the editor and administrator roles.
-	$admins = get_role( 'administrator' );
-	$editor = get_role( 'editor' );
-
-	// Add custom capabilities.
-	$admins->add_cap( 'edit_' . POSTTYPE );
-	$admins->add_cap( 'edit_' . POSTTYPE .'s' );
-	$admins->add_cap( 'edit_others_' . POSTTYPE .'s' );
-	$admins->add_cap( 'publish_' . POSTTYPE .'s' );
-	$admins->add_cap( 'read_' . POSTTYPE .'s' );
-	$admins->add_cap( 'read_private_' . POSTTYPE .'s' );
-	$admins->add_cap( 'delete_' . POSTTYPE );
-
-	$editor->add_cap( 'edit_' . POSTTYPE );
-	$editor->add_cap( 'edit_' . POSTTYPE .'s' );
-	$editor->add_cap( 'edit_others_' . POSTTYPE .'s' );
-	$editor->add_cap( 'publish_' . POSTTYPE .'s' );
-	$editor->add_cap( 'read_' . POSTTYPE .'s' );
-	$editor->add_cap( 'read_private_' . POSTTYPE .'s' );
-	$editor->add_cap( 'delete_' . POSTTYPE );
+	foreach ( $roles as $role ) {
+		$role->add_cap( 'edit_' . POSTTYPE );
+		$role->add_cap( 'edit_' . POSTTYPE .'s' );
+		$role->add_cap( 'edit_others_' . POSTTYPE .'s' );
+		$role->add_cap( 'publish_' . POSTTYPE .'s' );
+		$role->add_cap( 'read_' . POSTTYPE .'s' );
+		$role->add_cap( 'read_private_' . POSTTYPE .'s' );
+		$role->add_cap( 'delete_' . POSTTYPE );
+	}
 }
 add_action( 'admin_init', __NAMESPACE__ . '\add_custom_capabilities');
-
-/**
- * Post type update messages.
- *
- * See /wp-admin/edit-form-advanced.php
- *
- * @param array $messages Existing post update messages.
- *
- * @return array Amended post update messages with new CPT update messages.
- */
-function post_updated_messages( $messages ) {
-
-	$post             = get_post();
-	$post_type        = get_post_type( $post );
-	$post_type_object = get_post_type_object( $post_type );
-
-	$messages[ POSTTYPE ] = array(
-		0  => '',
-		1  => __( 'Egg updated.', 'kebbet-cpt-eastereegg' ),
-		2  => __( 'Custom field updated.', 'kebbet-cpt-eastereegg' ),
-		3  => __( 'Custom field deleted.', 'kebbet-cpt-eastereegg' ),
-		4  => __( 'Egg updated.', 'kebbet-cpt-eastereegg' ),
-		/* translators: %s: date and time of the revision */
-		5  => isset( $_GET['revision'] ) ? sprintf( __( 'Egg restored to revision from %s', 'kebbet-cpt-eastereegg' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
-		6  => __( 'Egg published.', 'kebbet-cpt-eastereegg' ),
-		7  => __( 'Egg saved.', 'kebbet-cpt-eastereegg' ),
-		8  => __( 'Egg submitted.', 'kebbet-cpt-eastereegg' ),
-		9  => sprintf(
-			/* translators: %1$s: date and time of the scheduled post */
-			__( 'Egg scheduled for: <strong>%1$s</strong>.', 'kebbet-cpt-eastereegg' ),
-			date_i18n( __( 'M j, Y @ G:i', 'kebbet-cpt-eastereegg' ), strtotime( $post->post_date ) )
-		),
-		10 => __( 'Egg draft updated.', 'kebbet-cpt-eastereegg' ),
-	);
-	if ( $post_type_object->publicly_queryable && POSTTYPE === $post_type ) {
-
-		$permalink         = get_permalink( $post->ID );
-		$view_link         = sprintf(
-			' <a href="%s">%s</a>',
-			esc_url( $permalink ),
-			__( 'View Egg', 'kebbet-cpt-eastereegg' )
-		);
-		$preview_permalink = add_query_arg( 'preview', 'true', $permalink );
-		$preview_link      = sprintf(
-			' <a target="_blank" href="%s">%s</a>',
-			esc_url( $preview_permalink ),
-			__( 'Preview Egg', 'kebbet-cpt-eastereegg' )
-		);
-
-		$messages[ $post_type ][1]  .= $view_link;
-		$messages[ $post_type ][6]  .= $view_link;
-		$messages[ $post_type ][9]  .= $view_link;
-		$messages[ $post_type ][8]  .= $preview_link;
-		$messages[ $post_type ][10] .= $preview_link;
-
-	}
-
-	return $messages;
-
-}
-add_filter( 'post_updated_messages', __NAMESPACE__ . '\post_updated_messages' );
-
-/**
- * Custom bulk post updates messages
- *
- * @param array  $bulk_messages The messages for bulk updating posts.
- * @param string $bulk_counts Number of updated posts.
- */
-function bulk_post_updated_messages( $bulk_messages, $bulk_counts ) {
-
-	$bulk_messages[ POSTTYPE ] = array(
-		/* translators: %s: singular of posts, %$s: plural of posts.  */
-		'updated'   => _n( '%s post updated.', '%s posts updated.', number_format_i18n( $bulk_counts['updated'] ), 'kebbet-cpt-eastereegg' ),
-		/* translators: %s: singular of posts, %$s: plural of posts.  */
-		'locked'    => _n( '%s post not updated, somebody is editing it.', '%s posts not updated, somebody is editing them.', number_format_i18n( $bulk_counts['locked'] ), 'kebbet-cpt-eastereegg' ),
-		/* translators: %s: singular of posts, %$s: plural of posts.  */
-		'deleted'   => _n( '%s post permanently deleted.', '%s posts permanently deleted.', number_format_i18n( $bulk_counts['deleted'] ), 'kebbet-cpt-eastereegg' ),
-		/* translators: %s: singular of posts, %$s: plural of posts.  */
-		'trashed'   => _n( '%s post moved to the Trash.', '%s posts moved to the Trash.', number_format_i18n( $bulk_counts['trashed'] ), 'kebbet-cpt-eastereegg' ),
-		/* translators: %s: singular of posts, %$s: plural of posts.  */
-		'untrashed' => _n( '%s post restored from the Trash.', '%s posts restored from the Trash.', number_format_i18n( $bulk_counts['untrashed'] ), 'kebbet-cpt-eastereegg' ),
-	);
-
-	return $bulk_messages;
-
-}
-add_filter( 'bulk_post_updated_messages', __NAMESPACE__ . '\bulk_post_updated_messages', 10, 2 );
 
 /**
  * Add the content to the `At a glance`-widget.
@@ -280,60 +184,32 @@ require_once plugin_dir_path( __FILE__ ) . 'inc/at-a-glance.php';
 require_once plugin_dir_path( __FILE__ ) . 'inc/admin-columns.php';
 
 /**
- * Add an option page for the post type.
+ * Adds admin messages for the post type.
  */
-function add_options_page() {
-	if ( function_exists( 'acf_add_options_page' ) ) {
-		acf_add_options_sub_page( array(
-			'page_title' => __( 'Egg archive settings', 'kebbet-cpt-eastereegg' ),
-			'menu_title' => __( 'Archive settings for eggs', 'kebbet-cpt-eastereegg' ),
-			'parent'     => 'edit.php?post_type=' . POSTTYPE,
-			'post_id'    => POSTTYPE,
-		) );
-	}
-}
+require_once plugin_dir_path( __FILE__ ) . 'inc/admin-messages.php';
+
+/**
+ * Customizations to post type behavior.
+ */
+require_once plugin_dir_path( __FILE__ ) . 'inc/customization.php';
+
 
 if ( true === ARCHIVE_OPT ) {
-	add_action( 'plugins_loaded', __NAMESPACE__ . '\add_options_page' );
+	/**
+	 * Adds options page.
+	 */
+	require_once plugin_dir_path( __FILE__ ) . 'inc/options-page.php';
 }
 
 /**
- * Set post title
+ * Return the BASE64-icon for admin menu.
  *
- * @param array $data An array of slashed, sanitized, and processed post data.
- * @param array $postarr An array of sanitized (and slashed) but otherwise unmodified post data.
- * @return array
- */
-function set_post_title( $data, $postarr ) {
-	if ( POSTTYPE !== $data['post_type'] ) {
-		return $data;
-	}
-
-	$title = get_citation( $data['post_content'] );
-	if ( empty( $title ) ) {
-		$title = sprintf(
-			__( 'Easter egg #%s', 'kebbet-cpt-easteregg' ),
-			$postarr['ID']
-		);
-	}
-	$data['post_title'] = $title;
-
-	return $data;
-}
-
-/**
- * Get citation from a quote block.
+ * @since 1.1.0
  *
- * @param string $content The post content.
  * @return string
  */
-function get_citation( $content ) {
-	$matches = array();
-	$regex   = '#<cite>(.*?)</cite>#';
-	$output  = null;
-	preg_match_all( $regex, $content, $matches );
-	if ( ! empty( $matches ) && ! empty( $matches[0] ) && ! empty( $matches[0][0] ) ) {
-		$output = strip_tags( $matches[0][0] );
-	}
-	return $output;
+function menu_icon() {
+	$icon = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI2LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxhZ2VyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAyMCAyMCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjAgMjA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHBhdGggZD0iTTIuNiwxMy45YzAuMSwxLDAuNSwxLjksMSwyLjdjMS42LTEuNiwxLjQtMS40LDMsMC4xQzguMywxNSw4LDE1LDkuNywxNi43YzEuNy0xLjcsMS41LTEuNywzLjEsMGMxLjYtMS42LDEuNC0xLjcsMy0wLjEKCWMwLjUtMC44LDAuOC0xLjcsMS0yLjdIMi42eiBNMi43LDEwLjdjLTAuMSwwLjUtMC4xLDEuMS0wLjEsMS42aDE0LjNjMC0wLjYsMC0xLjEtMC4xLTEuNkgyLjd6IE0xNC40LDE3LjNjLTEuNywxLjctMS40LDEuNy0zLjEsMAoJYy0xLjcsMS43LTEuNCwxLjctMy4xLDBDNi41LDE5LDYuNywxOSw1LDE3LjNsLTAuNSwwLjVjMi44LDIuOSw3LjYsMi45LDEwLjMsMEwxNC40LDE3LjNMMTQuNCwxNy4zeiBNNSw1LjhjMS43LTEuNywxLjQtMS43LDMuMSwwCgljMS43LTEuNywxLjUtMS43LDMuMSwwYzEuNy0xLjcsMS41LTEuNywzLjEsMGwwLjktMC45QzEyLjUtMS42LDctMS42LDQuMSw0LjlMNSw1Ljh6IE0xMi45LDEuN2MwLjMsMCwwLjUsMC4yLDAuNSwwLjUKCWMwLDAuMy0wLjIsMC41LTAuNSwwLjVjLTAuMywwLTAuNS0wLjMtMC41LTAuNUMxMi4zLDEuOSwxMi42LDEuNywxMi45LDEuN3ogTTkuNywxLjdjMC4zLDAsMC41LDAuMiwwLjUsMC41YzAsMC4zLTAuMiwwLjUtMC41LDAuNQoJYy0wLjMsMC0wLjUtMC4zLTAuNS0wLjVDOS4yLDEuOSw5LjQsMS43LDkuNywxLjd6IE02LjYsMS43YzAuMywwLDAuNSwwLjIsMC41LDAuNWMwLDAuMy0wLjMsMC41LTAuNSwwLjVjLTAuMywwLTAuNS0wLjMtMC41LTAuNQoJQzYuMSwxLjksNi4zLDEuNyw2LjYsMS43eiBNMTYuNiw5LjJjLTAuMi0xLTAuNC0xLjktMC43LTIuOGMtMS43LDEuNy0xLjQsMS42LTMuMS0wLjFjLTEuNywxLjctMS40LDEuNy0zLjEsMAoJQzgsOC4xLDguMyw4LjEsNi42LDYuNEM0LjksOCw1LjIsOC4xLDMuNSw2LjRDMy4yLDcuMywzLDguMywyLjksOS4ySDE2LjZMMTYuNiw5LjJ6Ii8+Cjwvc3ZnPgo=';
+
+	return $icon;
 }
