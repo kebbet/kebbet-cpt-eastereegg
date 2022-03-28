@@ -8,7 +8,7 @@
  * Author URI:  https://verkan.se
  * Update URI:  false
  *
- * @package kebbet-cpt-easter-egg
+ * @package kebbet-cpt-easteregg
  * @author Erik Betshammar
 */
 
