@@ -114,15 +114,7 @@ function register() {
 		$supports_args = array_merge( $supports_args, array( 'thumbnail' ) );
 	}
 
-	$capabilities_args = array(
-		'edit_post'          => 'edit_' . POSTTYPE,
-		'edit_posts'         => 'edit_' . POSTTYPE .'s',
-		'edit_others_posts'  => 'edit_others_' . POSTTYPE .'s',
-		'publish_posts'      => 'publish_' . POSTTYPE .'s',
-		'read_post'          => 'read_' . POSTTYPE .'s',
-		'read_private_posts' => 'read_private_' . POSTTYPE .'s',
-		'delete_post'        => 'delete_' . POSTTYPE,
-	);
+	$capabilities_args = \cpt\kebbet\easteregg\roles\capabilities();
 	$post_type_args    = array(
 		'label'               => __( 'Egg post type', 'kebbet-cpt-easteregg' ),
 		'description'         => __( 'Custom post type for easter eggs', 'kebbet-cpt-easteregg' ),
@@ -153,27 +145,6 @@ function register() {
 }
 
 /**
- * Adds custom capabilities to CPT. Adjust it with plugin URE later with its UI.
- */
-function add_custom_capabilities() {
-	$roles = array(
-		'admin'  => get_role( 'administrator' ),
-		'editor' => get_role( 'editor' ),
-	);
-
-	foreach ( $roles as $role ) {
-		$role->add_cap( 'edit_' . POSTTYPE );
-		$role->add_cap( 'edit_' . POSTTYPE .'s' );
-		$role->add_cap( 'edit_others_' . POSTTYPE .'s' );
-		$role->add_cap( 'publish_' . POSTTYPE .'s' );
-		$role->add_cap( 'read_' . POSTTYPE .'s' );
-		$role->add_cap( 'read_private_' . POSTTYPE .'s' );
-		$role->add_cap( 'delete_' . POSTTYPE );
-	}
-}
-add_action( 'admin_init', __NAMESPACE__ . '\add_custom_capabilities');
-
-/**
  * Add the content to the `At a glance`-widget.
  */
 require_once plugin_dir_path( __FILE__ ) . 'inc/at-a-glance.php';
@@ -187,6 +158,11 @@ require_once plugin_dir_path( __FILE__ ) . 'inc/admin-columns.php';
  * Adds admin messages for the post type.
  */
 require_once plugin_dir_path( __FILE__ ) . 'inc/admin-messages.php';
+
+/**
+ * Adjust roles and capabilities for post type
+ */
+require_once plugin_dir_path( __FILE__ ) . 'inc/roles.php';
 
 /**
  * Customizations to post type behavior.
