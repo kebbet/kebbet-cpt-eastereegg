@@ -1,3 +1,4 @@
+#dashboard_right_now li.easter-egg-count span::before,
 #dashboard_right_now li.easter-egg-count a::before {
 	content: '';
 	background-image: url( '../img/icon.svg' );
