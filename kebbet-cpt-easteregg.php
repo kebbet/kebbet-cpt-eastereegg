@@ -3,7 +3,7 @@
  * Plugin Name: Kebbet plugins - Custom Post Type: Easter egg
  * Plugin URI:  https://github.com/kebbet/kebbet-cpt-easteregg
  * Description: Registers a Custom Post Type.
- * Version:     1.1.0
+ * Version:     1.2.0
  * Author:      Erik Betshammar
  * Author URI:  https://verkan.se
  * Update URI:  false
@@ -37,6 +37,7 @@ function init() {
 		add_theme_support( 'post-thumbnails' );
 	}
 	add_filter( 'wp_insert_post_data', __NAMESPACE__ .'\customization\set_post_title', 99, 2 );
+	add_action( 'admin_enqueue_scripts', __NAMESPACE__ .'\enqueue_scripts' );
 }
 add_action( 'init', __NAMESPACE__ . '\init', 0 );
 
@@ -145,6 +146,23 @@ function register() {
 }
 
 /**
+ * Enqueue plugin scripts and styles.
+ *
+ * @since 1.2.0
+ *
+ * @param string $page The page/file name.
+ * @return void
+ */
+function enqueue_scripts( $page ) {
+	$assets_pages = array(
+		'index.php',
+	);
+	if ( in_array( $page, $assets_pages, true ) ) {
+		wp_enqueue_style( POSTTYPE . '_scripts', plugin_dir_url( __FILE__ ) . 'assets/css/style.css', array(), '1.2.0' );
+	}
+}
+
+/**
  * Add the content to the `At a glance`-widget.
  */
 require_once plugin_dir_path( __FILE__ ) . 'inc/at-a-glance.php';
@@ -180,12 +198,14 @@ if ( true === ARCHIVE_OPT ) {
 /**
  * Return the BASE64-icon for admin menu.
  *
- * @since 1.1.0
+ * @since 1.2.0
  *
  * @return string
  */
 function menu_icon() {
-	$icon = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI2LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxhZ2VyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAyMCAyMCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjAgMjA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHBhdGggZD0iTTIuNiwxMy45YzAuMSwxLDAuNSwxLjksMSwyLjdjMS42LTEuNiwxLjQtMS40LDMsMC4xQzguMywxNSw4LDE1LDkuNywxNi43YzEuNy0xLjcsMS41LTEuNywzLjEsMGMxLjYtMS42LDEuNC0xLjcsMy0wLjEKCWMwLjUtMC44LDAuOC0xLjcsMS0yLjdIMi42eiBNMi43LDEwLjdjLTAuMSwwLjUtMC4xLDEuMS0wLjEsMS42aDE0LjNjMC0wLjYsMC0xLjEtMC4xLTEuNkgyLjd6IE0xNC40LDE3LjNjLTEuNywxLjctMS40LDEuNy0zLjEsMAoJYy0xLjcsMS43LTEuNCwxLjctMy4xLDBDNi41LDE5LDYuNywxOSw1LDE3LjNsLTAuNSwwLjVjMi44LDIuOSw3LjYsMi45LDEwLjMsMEwxNC40LDE3LjNMMTQuNCwxNy4zeiBNNSw1LjhjMS43LTEuNywxLjQtMS43LDMuMSwwCgljMS43LTEuNywxLjUtMS43LDMuMSwwYzEuNy0xLjcsMS41LTEuNywzLjEsMGwwLjktMC45QzEyLjUtMS42LDctMS42LDQuMSw0LjlMNSw1Ljh6IE0xMi45LDEuN2MwLjMsMCwwLjUsMC4yLDAuNSwwLjUKCWMwLDAuMy0wLjIsMC41LTAuNSwwLjVjLTAuMywwLTAuNS0wLjMtMC41LTAuNUMxMi4zLDEuOSwxMi42LDEuNywxMi45LDEuN3ogTTkuNywxLjdjMC4zLDAsMC41LDAuMiwwLjUsMC41YzAsMC4zLTAuMiwwLjUtMC41LDAuNQoJYy0wLjMsMC0wLjUtMC4zLTAuNS0wLjVDOS4yLDEuOSw5LjQsMS43LDkuNywxLjd6IE02LjYsMS43YzAuMywwLDAuNSwwLjIsMC41LDAuNWMwLDAuMy0wLjMsMC41LTAuNSwwLjVjLTAuMywwLTAuNS0wLjMtMC41LTAuNQoJQzYuMSwxLjksNi4zLDEuNyw2LjYsMS43eiBNMTYuNiw5LjJjLTAuMi0xLTAuNC0xLjktMC43LTIuOGMtMS43LDEuNy0xLjQsMS42LTMuMS0wLjFjLTEuNywxLjctMS40LDEuNy0zLjEsMAoJQzgsOC4xLDguMyw4LjEsNi42LDYuNEM0LjksOCw1LjIsOC4xLDMuNSw2LjRDMy4yLDcuMywzLDguMywyLjksOS4ySDE2LjZMMTYuNiw5LjJ6Ii8+Cjwvc3ZnPgo=';
+	$icon_base64 = 'PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI2LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxhZ2VyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAyMCAyMCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjAgMjA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHBhdGggZD0iTTIuNiwxMy45YzAuMSwxLDAuNSwxLjksMSwyLjdjMS42LTEuNiwxLjQtMS40LDMsMC4xQzguMywxNSw4LDE1LDkuNywxNi43YzEuNy0xLjcsMS41LTEuNywzLjEsMGMxLjYtMS42LDEuNC0xLjcsMy0wLjEKCWMwLjUtMC44LDAuOC0xLjcsMS0yLjdIMi42eiBNMi43LDEwLjdjLTAuMSwwLjUtMC4xLDEuMS0wLjEsMS42aDE0LjNjMC0wLjYsMC0xLjEtMC4xLTEuNkgyLjd6IE0xNC40LDE3LjNjLTEuNywxLjctMS40LDEuNy0zLjEsMAoJYy0xLjcsMS43LTEuNCwxLjctMy4xLDBDNi41LDE5LDYuNywxOSw1LDE3LjNsLTAuNSwwLjVjMi44LDIuOSw3LjYsMi45LDEwLjMsMEwxNC40LDE3LjNMMTQuNCwxNy4zeiBNNSw1LjhjMS43LTEuNywxLjQtMS43LDMuMSwwCgljMS43LTEuNywxLjUtMS43LDMuMSwwYzEuNy0xLjcsMS41LTEuNywzLjEsMGwwLjktMC45QzEyLjUtMS42LDctMS42LDQuMSw0LjlMNSw1Ljh6IE0xMi45LDEuN2MwLjMsMCwwLjUsMC4yLDAuNSwwLjUKCWMwLDAuMy0wLjIsMC41LTAuNSwwLjVjLTAuMywwLTAuNS0wLjMtMC41LTAuNUMxMi4zLDEuOSwxMi42LDEuNywxMi45LDEuN3ogTTkuNywxLjdjMC4zLDAsMC41LDAuMiwwLjUsMC41YzAsMC4zLTAuMiwwLjUtMC41LDAuNQoJYy0wLjMsMC0wLjUtMC4zLTAuNS0wLjVDOS4yLDEuOSw5LjQsMS43LDkuNywxLjd6IE02LjYsMS43YzAuMywwLDAuNSwwLjIsMC41LDAuNWMwLDAuMy0wLjMsMC41LTAuNSwwLjVjLTAuMywwLTAuNS0wLjMtMC41LTAuNQoJQzYuMSwxLjksNi4zLDEuNyw2LjYsMS43eiBNMTYuNiw5LjJjLTAuMi0xLTAuNC0xLjktMC43LTIuOGMtMS43LDEuNy0xLjQsMS42LTMuMS0wLjFjLTEuNywxLjctMS40LDEuNy0zLjEsMAoJQzgsOC4xLDguMyw4LjEsNi42LDYuNEM0LjksOCw1LjIsOC4xLDMuNSw2LjRDMy4yLDcuMywzLDguMywyLjksOS4ySDE2LjZMMTYuNiw5LjJ6Ii8+Cjwvc3ZnPgo=';
 
-	return $icon;
+	$icon_data_uri = 'data:image/svg+xml;base64,' . $icon_base64;
+
+	return $icon_data_uri;
 }

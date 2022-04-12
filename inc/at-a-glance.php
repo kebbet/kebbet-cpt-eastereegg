@@ -8,6 +8,7 @@
 namespace cpt\kebbet\easteregg\at_a_glance;
 
 use const cpt\kebbet\easteregg\POSTTYPE;
+use const cpt\kebbet\easteregg\ICON;
 
 /**
  * Adds post-type info to 'At a Glance'-dashboard widget.
@@ -31,14 +32,29 @@ function at_a_glance_items( $items = array() ) {
 			$published = intval( $num_posts->publish );
 			$post_type = get_post_type_object( $type );
 			/* translators: %s: counter of how many posts. */
-			$text     = _n( '%s egg post', '%s egg posts', $published, 'kebbet-cpt-easteregg' );
-			$text     = sprintf( $text, number_format_i18n( $published ) );
-			$editlink = 'edit.php?post_type=' . $type;
+			$text      = _n( '%s egg post', '%s egg posts', $published, 'kebbet-cpt-easteregg' );
+			$text      = sprintf( $text, number_format_i18n( $published ) );
+			$edit_link = 'edit.php?post_type=' . $type;
+			$class     = $type . '-count';
+			$icon_class = '';
+			if ( ICON ) {
+				$icon_class = 'class="dashicons-before dashicons-' . ICON . '" ';
+			}
 
 			if ( current_user_can( $post_type->cap->edit_posts ) ) {
-				$items[] = sprintf( '<a href="%3$s">%2$s</a>', $type, $text, $editlink ) . "\n";
+				echo sprintf(
+					'<li class="%1$s"><a %4$shref="%3$s">%2$s</a></li>',
+					esc_attr( $class ),
+					esc_html( $text ),
+					esc_url( $edit_link ),
+					$icon_class
+				) . "\n";
 			} else {
-				$items[] = sprintf( '<span class="%1$s-count">%2$s</span>', $type, $text ) . "\n";
+				echo sprintf(
+					'<li class="%1$s">%2$s</li>',
+					esc_attr( $class ),
+					esc_html( $text ),
+				) . "\n";
 			}
 		}
 	}

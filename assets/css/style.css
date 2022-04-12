@@ -1,0 +1,7 @@
+#dashboard_right_now li.easter-egg-count a::before {
+	content: '';
+	background-image: url( '../img/icon.svg' );
+	background-repeat: no-repeat;
+	width: 1.25rem;
+	height: 1.25rem;
+}
