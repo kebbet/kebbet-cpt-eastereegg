@@ -28,14 +28,13 @@ function at_a_glance_items( $items = array() ) {
 		$num_posts = wp_count_posts( $type );
 
 		if ( $num_posts ) {
-
 			$published = intval( $num_posts->publish );
 			$post_type = get_post_type_object( $type );
 			/* translators: %s: counter of how many posts. */
 			$text      = _n( '%s egg post', '%s egg posts', $published, 'kebbet-cpt-easteregg' );
 			$text      = sprintf( $text, number_format_i18n( $published ) );
 			$edit_link = 'edit.php?post_type=' . $type;
-			$class     = $type . '-count';
+			$css_class = $type . '-count';
 			$icon_class = '';
 			if ( ICON ) {
 				$icon_class = 'class="dashicons-before dashicons-' . ICON . '" ';
@@ -44,7 +43,7 @@ function at_a_glance_items( $items = array() ) {
 			if ( current_user_can( $post_type->cap->edit_posts ) ) {
 				echo sprintf(
 					'<li class="%1$s"><a %4$shref="%3$s">%2$s</a></li>',
-					esc_attr( $class ),
+					esc_attr( $css_class ),
 					esc_html( $text ),
 					esc_url( $edit_link ),
 					$icon_class
@@ -52,7 +51,7 @@ function at_a_glance_items( $items = array() ) {
 			} else {
 				echo sprintf(
 					'<li class="%1$s">%2$s</li>',
-					esc_attr( $class ),
+					esc_attr( $css_class ),
 					esc_html( $text ),
 				) . "\n";
 			}
