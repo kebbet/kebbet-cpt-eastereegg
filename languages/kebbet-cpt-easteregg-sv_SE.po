@@ -1,17 +1,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Kebbet plugins - Custom Post Type: Easter egg\n"
-"POT-Creation-Date: 2022-03-28 10:46+0200\n"
-"PO-Revision-Date: 2022-03-28 10:50+0200\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2022-04-28 12:29+0200\n"
+"PO-Revision-Date: 2022-04-28 12:29+0200\n"
+"Last-Translator: Erik Betshammar <info@verkan.se>\n"
 "Language-Team: \n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.3\n"
-"X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: kebbet-cpt-easteregg.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: inc/admin-columns.php:41 kebbet-cpt-easteregg.php:88
+#: inc/admin-columns.php:41 kebbet-cpt-easteregg.php:89
 msgid "Egg image"
 msgstr "Äggbild"
 
@@ -135,140 +135,140 @@ msgid "Easter egg #%s"
 msgstr "Påskägg #%s"
 
 #: inc/options-page.php:20
-msgid "Egg archive settings"
-msgstr "Inställningar för äggarkiv"
+msgid "Egg settings"
+msgstr "Inställningar för ägg"
 
 #: inc/options-page.php:21
-msgid "Archive settings for eggs"
-msgstr "Arkivinställningar för ägg"
+msgid "Timer settings"
+msgstr "Timerinställningar"
 
-#: kebbet-cpt-easteregg.php:73
+#: kebbet-cpt-easteregg.php:74
 msgctxt "Post Type General Name"
 msgid "Easter eggs"
 msgstr "Påskägg"
 
-#: kebbet-cpt-easteregg.php:74
+#: kebbet-cpt-easteregg.php:75
 msgctxt "Post Type Singular Name"
 msgid "Egg"
 msgstr "Ägg"
 
-#: kebbet-cpt-easteregg.php:75
+#: kebbet-cpt-easteregg.php:76
 msgid "Eggs"
 msgstr "Ägg"
 
-#: kebbet-cpt-easteregg.php:76
+#: kebbet-cpt-easteregg.php:77
 msgid "Egg"
 msgstr "Ägg"
 
-#: kebbet-cpt-easteregg.php:77
+#: kebbet-cpt-easteregg.php:78
 msgid "All eggs"
 msgstr "Alla ägg"
 
-#: kebbet-cpt-easteregg.php:78 kebbet-cpt-easteregg.php:80
+#: kebbet-cpt-easteregg.php:79 kebbet-cpt-easteregg.php:81
 msgid "New egg"
 msgstr "Nytt ägg"
 
-#: kebbet-cpt-easteregg.php:79
+#: kebbet-cpt-easteregg.php:80
 msgid "Add new egg"
 msgstr "Lägg till nytt ägg"
 
-#: kebbet-cpt-easteregg.php:81
+#: kebbet-cpt-easteregg.php:82
 msgid "Edit egg"
 msgstr "Redigera ägg"
 
-#: kebbet-cpt-easteregg.php:82
+#: kebbet-cpt-easteregg.php:83
 msgid "Update egg"
 msgstr "Uppdatera ägg"
 
-#: kebbet-cpt-easteregg.php:83
+#: kebbet-cpt-easteregg.php:84
 msgid "View egg"
 msgstr "Visa ägg"
 
-#: kebbet-cpt-easteregg.php:84
+#: kebbet-cpt-easteregg.php:85
 msgid "View eggs"
 msgstr "Visa ägg"
 
-#: kebbet-cpt-easteregg.php:85
+#: kebbet-cpt-easteregg.php:86
 msgid "Search eggs"
 msgstr "Sök ägg"
 
-#: kebbet-cpt-easteregg.php:86
+#: kebbet-cpt-easteregg.php:87
 msgid "Not found"
 msgstr "Inget hittades"
 
-#: kebbet-cpt-easteregg.php:87
+#: kebbet-cpt-easteregg.php:88
 msgid "No eggs found in Trash"
 msgstr "Inga ägg hittades i papperskorgen"
 
-#: kebbet-cpt-easteregg.php:89
+#: kebbet-cpt-easteregg.php:90
 msgid "Set egg image"
 msgstr "Ange äggbild"
 
-#: kebbet-cpt-easteregg.php:90
+#: kebbet-cpt-easteregg.php:91
 msgid "Remove egg image"
 msgstr "Ta bort äggbild"
 
-#: kebbet-cpt-easteregg.php:91
+#: kebbet-cpt-easteregg.php:92
 msgid "Use as egg image"
 msgstr "Använd som äggbild"
 
-#: kebbet-cpt-easteregg.php:92
+#: kebbet-cpt-easteregg.php:93
 msgid "Insert into item"
 msgstr "Infoga till objekt"
 
-#: kebbet-cpt-easteregg.php:93
+#: kebbet-cpt-easteregg.php:94
 msgid "Uploaded to this egg"
 msgstr "Uppladdat till detta ägg"
 
-#: kebbet-cpt-easteregg.php:94
+#: kebbet-cpt-easteregg.php:95
 msgid "Items list"
 msgstr "Objektslista"
 
-#: kebbet-cpt-easteregg.php:95
+#: kebbet-cpt-easteregg.php:96
 msgid "Items list navigation"
 msgstr "Navigering för objektlista"
 
-#: kebbet-cpt-easteregg.php:96
+#: kebbet-cpt-easteregg.php:97
 msgid "Filter items list"
 msgstr "Filtrera objektlista"
 
-#: kebbet-cpt-easteregg.php:97
+#: kebbet-cpt-easteregg.php:98
 msgid "Egg published"
 msgstr "Ägg publicerat"
 
-#: kebbet-cpt-easteregg.php:98
+#: kebbet-cpt-easteregg.php:99
 msgid "Egg published privately"
 msgstr "Ägg publicerat privat"
 
-#: kebbet-cpt-easteregg.php:99
+#: kebbet-cpt-easteregg.php:100
 msgid "Egg reverted to Draft"
 msgstr "Ägg återställt till utkast"
 
-#: kebbet-cpt-easteregg.php:100
+#: kebbet-cpt-easteregg.php:101
 msgid "Egg scheduled"
 msgstr "Ägg schemalagt"
 
-#: kebbet-cpt-easteregg.php:101
+#: kebbet-cpt-easteregg.php:102
 msgid "Egg updated"
 msgstr "Ägg uppdaterat"
 
-#: kebbet-cpt-easteregg.php:103
+#: kebbet-cpt-easteregg.php:104
 msgid "Filter eggs by date"
 msgstr "Filtrera ägg efter datum"
 
-#: kebbet-cpt-easteregg.php:104
+#: kebbet-cpt-easteregg.php:105
 msgid "Eggs post link"
 msgstr "Länk till ägginlägg"
 
-#: kebbet-cpt-easteregg.php:105
+#: kebbet-cpt-easteregg.php:106
 msgid "A link to a egg post"
 msgstr "En länk till ett ägginlägg"
 
-#: kebbet-cpt-easteregg.php:127
+#: kebbet-cpt-easteregg.php:120
 msgid "Egg post type"
 msgstr "Inläggstypen ägg"
 
-#: kebbet-cpt-easteregg.php:128
+#: kebbet-cpt-easteregg.php:121
 msgid "Custom post type for easter eggs"
 msgstr "Anpassad inläggstyp för påskägg"
 
@@ -291,3 +291,6 @@ msgstr "Erik Betshammar"
 #. Author URI of the plugin/theme
 msgid "https://verkan.se"
 msgstr "https://verkan.se"
+
+#~ msgid "Archive settings for eggs"
+#~ msgstr "Arkivinställningar för ägg"

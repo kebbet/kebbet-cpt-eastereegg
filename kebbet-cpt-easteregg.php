@@ -19,7 +19,7 @@ const SLUG        = 'egg';
 const ICON        = 'carrot';
 const MENUPOS     = 28;
 const THUMBNAIL   = false;
-const ARCHIVE_OPT = false;
+const ARCHIVE_OPT = true;
 
 /**
  * Link to ICONS
