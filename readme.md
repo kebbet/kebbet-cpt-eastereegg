@@ -6,6 +6,7 @@
 - BASE64 Icon
 - Gutenberg template (locked)
 - Automated post title (Cite or just Egg ID)
+- Options page prepared for Advanced Custom Fields Pro. (Settings is added with theme)
 
 ## How to use
 - Activate plugin on any WordPress site.
