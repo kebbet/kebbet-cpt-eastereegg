@@ -46,18 +46,20 @@ add_action( 'init', __NAMESPACE__ . '\init', 0 );
  *
  * @link https://codex.wordpress.org/Function_Reference/register_post_type
  */
-function rewrite_flush() {
-	// First, we "add" the custom post type via the above written function.
-	// Note: "add" is written with quotes, as CPTs don't get added to the DB,
-	// They are only referenced in the post_type column with a post entry,
-	// when you add a post of this CPT.
+function activation_hook() {
 	register();
-
-	// ATTENTION: This is *only* done during plugin activation hook in this example!
-	// You should *NEVER EVER* do this on every page load!!
-	flush_rewrite_rules();
+	\flush_rewrite_rules();
 }
-register_activation_hook( __FILE__, __NAMESPACE__ . '\rewrite_flush' );
+register_activation_hook( __FILE__, __NAMESPACE__ . '\activation_hook' );
+
+/**
+ * Deactivation hook.
+ */
+function deactivation_hook() {
+    \unregister_post_type( POSTTYPE );
+    \flush_rewrite_rules();
+}
+register_deactivation_hook( __FILE__, __NAMESPACE__ . 'deactivation_hook' );
 
 /**
  * Load plugin textdomain.
@@ -186,7 +188,6 @@ require_once plugin_dir_path( __FILE__ ) . 'inc/roles.php';
  * Customizations to post type behavior.
  */
 require_once plugin_dir_path( __FILE__ ) . 'inc/customization.php';
-
 
 if ( true === ARCHIVE_OPT ) {
 	/**
